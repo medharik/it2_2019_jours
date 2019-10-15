@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+    <style>
+      main {
+        width: 800px;
+        min-height: 500px;
+        background: grey;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+      }
+      .bo {
+        border: 1px solid black;
+      }
+      .a {
+        background: red;
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .b {
+        background: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 3;
+      }
+      .c {
+        background: blue;
+        flex: 1;
+
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        height: 40px;
+        width: 100%;
+        background: black;
+        display: flex;
+        justify-content: center;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+      }
+      nav a:hover {
+        background: rgb(211, 193, 193);
+      }
+      .c .bo {
+        flex-basis: 50%;
+        height: 100px;
+        box-sizing: border-box;
+      }
+
+      .blan {
+        background: white;
+      }
+
+      .noir {
+        background: rgb(139, 124, 124);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="">Accueil</a>
+        <a href="">test 1 </a>
+        <a href="">test 2</a>
+        <a href="">test 3</a>
+        <a href="">test 4</a>
+      </nav>
+    </header>
+    <main>
+      <div class="a bo  ">
+        <a href="" class="bo">lien 1</a>
+        <a href="" class="bo">lien 2</a>
+        <a href="" class="bo">lien 3</a>
+      </div>
+      <div class="b bo  ">
+        <img src="http://placehold.it/200" alt="" />
+      </div>
+      <div class="c bo  ">
+        <div class="bo blan">1</div>
+        <div class="bo noir">2</div>
+        <div class="bo blan">3</div>
+        <div class="bo noir">4</div>
+        <div class="bo blan">5</div>
+        <div class="bo noir"></div>
+        <div class="bo blan"></div>
+        <div class="bo noir"></div>
+        <div class="bo blan"></div>
+        <div class="bo noir"></div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

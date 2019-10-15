@@ -1,0 +1,22 @@
+.parent {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  background: pink;
+  display: flex;
+}
+.enfant1 {
+  flex: 1;
+  background: rgb(241, 27, 63);
+}
+.enfant2 {
+  flex: 1;
+  background: rgb(25, 241, 97);
+  display: flex;
+  flex-direction: column;
+}
+
+.e {
+  flex: 1;
+  border: 1px solid black;
+}
