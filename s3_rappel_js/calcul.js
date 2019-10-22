@@ -28,3 +28,9 @@ function calculer_ttc() {
   r.style.display = "block";
   cqte.className = cprix.className = !yaerreur ? "b_ok" : "b_erreur";
 }
+
+function basculer() {
+  var p = document.getElementById("p");
+  var c = document.getElementById("c");
+  p.type = c.checked ? "text" : "password";
+}
