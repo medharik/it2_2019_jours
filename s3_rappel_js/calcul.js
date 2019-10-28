@@ -32,5 +32,7 @@ function calculer_ttc() {
 function basculer() {
   var p = document.getElementById("p");
   var c = document.getElementById("c");
+  var im = document.getElementById("im");
   p.type = c.checked ? "text" : "password";
+  im.src = !c.checked ? "images/close.png" : "images/open.png";
 }
