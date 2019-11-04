@@ -202,6 +202,7 @@
     <div class="container ">
       <div class="row">
         <div class="col-md-6  p-3 ">
+          <div class="alert alert-danger"></div>
           <form action="">
             <div class="form-group">
               <label for="np">Nom & prenom </label>
@@ -223,8 +224,7 @@
                 id="adresse"
                 name="adresse"
                 class="form-control"
-              >
-              </textarea>
+              ></textarea>
               <button type="button" class="btn btn-primary mt-3">
                 Envoyer
               </button>
@@ -270,5 +270,16 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $("textarea, input").blur(function() {
+        if ($(this).val() == "") {
+          //   alert("ce champs est obligatoire");
+          $(".alert").html("erreur , champs requis");
+          $(".alert").show();
+        } else {
+          $(".alert").hide();
+        }
+      });
+    </script>
   </body>
 </html>
