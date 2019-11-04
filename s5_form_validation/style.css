@@ -1,6 +1,8 @@
 i {
-  color: rgb(240, 17, 36);
-  font-size: 2em;
+  color: rgb(58, 163, 228);
+  font-size: 3em;
   padding: 10px;
 }
-`
+br + span {
+  font-size: 1.5em;
+}

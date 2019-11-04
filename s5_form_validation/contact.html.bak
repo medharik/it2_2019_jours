@@ -16,17 +16,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Start WOWSlider.com HEAD section -->
-    <!-- add to the <head> of your page -->
-    <link rel="stylesheet" type="text/css" href="engine0/style.css" />
-    <script type="text/javascript" src="engine0/jquery.js"></script>
-    <!-- End WOWSlider.com HEAD section -->
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg navbar-dark bg-primary mb-3 d-flex justify-content-center "
-    >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3 d-flex justify-content-center " >
       <a class="navbar-brand" href="#">Navbar</a>
       <button
         class="navbar-toggler"
@@ -46,7 +38,7 @@
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
-
+          
           <li class="nav-item">
             <a class="nav-link" href="#">Features</a>
           </li>
@@ -75,74 +67,8 @@
       </div>
     </nav>
 
-    <div class="container-fluid " id="banner">
-      <!-- Start WOWSlider.com BODY section -->
-      <!-- add to the <body> of your page -->
-      <div id="wowslider-container0">
-        <div class="ws_images">
-          <ul>
-            <li>
-              <img
-                src="data0/images/b1.jpg"
-                alt="Mercedes cls 56"
-                title="Mercedes cls 56"
-                id="wows0_0"
-              />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-              libero sapiente tempore, ratione consequatur animi. Repellat enim,
-              aut doloremque est quibusdam quod commodi atque perspiciatis
-              mollitia distinctio quo nam vel.
-            </li>
-            <li>
-              <a href="http://wowslider.net"
-                ><img
-                  src="data0/images/b2.jpg"
-                  alt="image carousel"
-                  title="Bentley h7"
-                  id="wows0_1"
-              /></a>
-            </li>
-            <li>
-              <img
-                src="data0/images/b3.jpg"
-                alt="Jaguar cf67"
-                title="Jaguar cf67"
-                id="wows0_2"
-              />
-            </li>
-          </ul>
-        </div>
-        <div class="ws_bullets">
-          <div>
-            <a href="#" title="Mercedes cls 56"
-              ><span
-                ><img
-                  src="data0/tooltips/b1.jpg"
-                  alt="Mercedes cls 56"
-                />1</span
-              ></a
-            >
-            <a href="#" title="Bentley h7"
-              ><span
-                ><img src="data0/tooltips/b2.jpg" alt="Bentley h7" />2</span
-              ></a
-            >
-            <a href="#" title="Jaguar cf67"
-              ><span
-                ><img src="data0/tooltips/b3.jpg" alt="Jaguar cf67" />3</span
-              ></a
-            >
-          </div>
-        </div>
-        <div class="ws_script" style="position:absolute;left:-99%">
-          <a href="http://wowslider.net">html5 slideshow</a> by WOWSlider.com
-          v8.8
-        </div>
-        <div class="ws_shadow"></div>
-      </div>
-      <script type="text/javascript" src="engine0/wowslider.js"></script>
-      <script type="text/javascript" src="engine0/script.js"></script>
-      <!-- End WOWSlider.com BODY section -->
+    <div class="container bg-danger" id="banner">
+      
     </div>
     <h2 class="text-center text-primary py-3 bg-light">Nous-Contacter</h2>
     <br />
