@@ -191,17 +191,18 @@
             width="100%"
             height="450"
             frame="0"
-            
             allowfullscreen=""
           ></iframe>
         </div>
       </div>
     </div>
-    <section style="width: 100%;height:300px;background: yellow;background: url(data0/images/b1.jpg) fixed;" class="d-flex justify-content-center align-items-center">
+    <section
+      style="width: 100%;height:300px;background: yellow;background: url(data0/images/b1.jpg) fixed;"
+      class="d-flex justify-content-center align-items-center"
+    >
       <div class="btn btn-primary">Nous-contacter</div>
-     
+
       <div class="btn btn-warning mx-2">Demander un devis</div>
-      
     </section>
 
     <h1 class="text-center text-primary bg-light py-2">FEEDBACK</h1>
@@ -212,16 +213,31 @@
           <form action="https://google.fr" id="monform">
             <div class="form-group">
               <label for="np">Nom & prenom </label>
-              <input type="text" id="np" name="np" class="form-control" />
+              <input
+                autocomplete="off"
+                type="text"
+                id="np"
+                name="np"
+                class="form-control"
+              />
+              <small class="text-danger"></small>
             </div>
             <div class="form-group">
               <label for="email">Email </label>
-              <input type="text" id="email" name="email" class="form-control" />
+              <input
+                autocomplete="off"
+                type="text"
+                id="email"
+                name="email"
+                class="form-control"
+              />
+              <small class="text-danger"></small>
             </div>
 
             <div class="form-group">
               <label for="tel">Tel </label>
               <input type="text" id="tel" name="tel" class="form-control" />
+              <small class="text-danger"></small>
             </div>
             <div class="form-group">
               <label for="adresse">Adresse </label>
@@ -231,6 +247,8 @@
                 name="adresse"
                 class="form-control"
               ></textarea>
+              <small class="text-danger"></small>
+
               <button type="button" class="btn btn-primary mt-3">
                 Envoyer
               </button>
@@ -277,27 +295,45 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      //closure
-      $(document).ready(function() {
-        $(".alert-danger").hide();
-
-        $(document).on("blur keyup", "input, textarea", function() {
-          if ($(this).val() == "") {
-            $(".alert-danger")
-              .html("ce champs est requis")
-              .show();
-          } else {
-            $(".alert-danger")
-              .html("")
-              .hide();
-          }
-        });
-        $(document).on("click", "button", function() {
-          $("input, textarea").blur();
-          if ($(".alert-danger").html() == "") {
-            $("#monform").submit();
-          }
-        });
+      $(document).on("keyup blur", "input, textarea", function() {
+        if ($(this).val() == "") {
+          $(this)
+            .next("small")
+            .text("Ce champs est obligatoire");
+        } else {
+          $(this)
+            .next("small")
+            .text("");
+        }
+      });
+      $(document).on("click", "button", function() {
+        $("input, textarea").keyup();
+      });
+      $(document).on("keyup blur", "#email", function() {
+        var modelEmail = /[a-zA-Z0-9]{4,}@itsup.ma/;
+        //    var modelCin=/[a-zA-Z]{1,2}[0-9]{4,6}/
+        if (!modelEmail.test($(this).val())) {
+          $(this)
+            .next("small")
+            .text("Email incorrect");
+        } else {
+          $(this)
+            .next("small")
+            .text("");
+        }
+      });
+      $(document).on("keyup blur", "#tel", function() {
+        var modelTel = /^0522[- /]{0,}[0-9]{6}$/;
+        //    var modelCin=/[a-zA-Z]{1,2}[0-9]{4,6}/
+        if (!modelTel.test($(this).val())) {
+          $(this)
+            .next("small")
+            .text("Tel incorrect");
+        } else {
+          $(this)
+            .next("small")
+            .text("");
+        }
       });
     </script>
   </body>
