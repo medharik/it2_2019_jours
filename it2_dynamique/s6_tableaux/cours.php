@@ -63,7 +63,8 @@ $stock=[0=>$hp,1=>$dell,$sony];
         ?></td>
     </tr>
 <?php } ?> 
-</table></div>
+</table>
+</div>
     
 </body>
 </html>
