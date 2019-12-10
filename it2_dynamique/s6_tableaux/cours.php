@@ -2,19 +2,22 @@
 $hp=[   
      "libelle"=>"hp dv 6",
      "prix"=> 5600,
-     "image" => "hp.jpg"
+     "image" => "hp.jpg",
+     'qte'=>10
 ] ;
 $dell=[   
      "libelle"=>"dell  satelitte",
      "prix"=> 6000,
-     "image" => "dell.jpg"
+     "image" => "dell.jpg",
+     'qte'=>0
 ] ;
 $sony=[   
      "libelle"=>"sony vaio",
      "prix"=> 6000,
-     "image" => "test.jpg"
+     "image" => "testgit .jpg",
+     'qte'=>190
 ] ;
-$stock=[0=>$hp,1=>$dell];
+$stock=[0=>$hp,1=>$dell,$sony];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,14 +36,31 @@ $stock=[0=>$hp,1=>$dell];
         <td>Libelle</td>
         <td>prix</td>
         <td>image</td>
+        <td>Etat de stock</td>
     </tr>
 <?php foreach($stock as $c => $v) { ?>
 
-    <tr>
+    <tr class=" <?php 
+        if($v['qte']==0){
+            echo "bg-danger";
+        }
+        
+        
+        ?>">
     <td><?=$c?></td>
         <td><?=$v['libelle'] ?></td>
         <td><?=$v['prix'] ?></td>
         <td><img src="images/<?=$v['image'] ?>" alt="" width="150"></td>
+        <td>
+        <?php 
+        if($v['qte']==0){
+            echo "en rupture de stock";
+        }else{
+            echo $v['qte'];
+        }
+        
+        
+        ?></td>
     </tr>
 <?php } ?> 
 </table></div>
