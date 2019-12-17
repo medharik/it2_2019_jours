@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6 shadow mx-auto p-4 mt-4">
             
-            <form action="save.php">
+            <form action="ajout.php">
             
             <div class="form-group">
             <label for="libelle">Libelle : </label>
