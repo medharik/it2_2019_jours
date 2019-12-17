@@ -44,8 +44,6 @@ $stock=[0=>$hp,1=>$dell,$sony];
         if($v['qte']==0){
             echo "bg-danger";
         }
-        
-        
         ?>">
     <td><?=$c?></td>
         <td><?=$v['libelle'] ?></td>
