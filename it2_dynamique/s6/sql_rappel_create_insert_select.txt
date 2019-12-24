@@ -1,0 +1,22 @@
+-- SQL :
+-- creer une base de donnees
+-- garantit la persistence des donnees structurees 
+sous forme de tables (eventuellement ) relationnelles 
+-- CREATE DATABASE it_db_php
+-- USE it_db_php
+-- creer une table : produit (id,libelle , prix, 
+qtestock)
+-- CREATE TABLE produit(
+-- id INT primary KEY AUTO_INCREMENT ,
+-- libelle VARCHAR(50) NOT NULL ,
+-- prix FLOAT ,
+-- qtestock INT UNSIGNED  DEFAULT 0
+
+-- )
+-- afficher la structure d'une table 
+DESCRIBE produit
+-- inserer (enregistrer un produit ) : insert 
+-- INSERT  INTO produit (libelle, prix , qtestock) 
+VALUES ('dell s7',6000,100)
+-- liste des produits 
+-- SELECT * FROM produit 
