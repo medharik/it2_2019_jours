@@ -7,6 +7,8 @@
     <title>Noouveau produit </title>
 </head>
 <body>
+<?php include ("_menu.php");?>
+
 <form action="store.php" method="post" >
 <input type="text" name="libelle" placeholder="Entrer le libelle">
 <input type="text" name="prix" placeholder="prix">
