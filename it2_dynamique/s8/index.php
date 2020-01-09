@@ -7,8 +7,14 @@ if(isset($_GET['s'])){
                     if($s=="yes"){
                         $message="suppression effectuee avec succes";
                     }  
-                    if($s=="ajout"){
+                    if($s=="ajout "){
                         $message="Ajout du produit effectue avec succes";
+                    }  
+                    if($s=="no_prod"){
+                        $message="Produit inexistant";
+                    }  
+                    if($s=="upd"){
+                        $message="Produit modifie avec succes";
                     }  
 
 }
@@ -45,8 +51,8 @@ $resultat= tous();
         <td><?=$ligne['prix'];?></td>
         <td><?=$ligne['quantite'];?></td>
         <td><a href="delete.php?id=<?=$ligne['id'];?>" onclick="return confirm('supprimer ?')">Supprimer</a>
-        <a href="">M</a>
-        <a href="">C</a></td>
+        <a href="edit.php?id=<?=$ligne['id'];?>">Modifier</a>
+        <a href="show.php?id=<?=$ligne['id'];?>">Consulter</a></td>
     </tr>
 <?php } ?>
   </tbody>

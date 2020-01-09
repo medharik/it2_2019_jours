@@ -27,5 +27,20 @@ function supprimer($id){
     mysqli_query($link,$sql) or die("erreur de suppression du produit ".mysqli_error($link));
   
     }
-//modifier
+    //consulter 
+    function consulter($id){
+      $link=connecter_db();
+      $sql=sprintf("select * from produit  where id =%d",$id);
+   $resultat=   mysqli_query($link,$sql) or die("erreur de consultation du produit ".mysqli_error($link));
+    $ligne=mysqli_fetch_assoc($resultat);
+    return $ligne;
+    }
+    //modifier
+    function modifier($libelle,$prix,$qte,$id)
+    {
+      $link=connecter_db();
+      $sql=sprintf("update produit set libelle='%s' , prix=%f , quantite=%d where  id=%d",$libelle,$prix,$qte,$id);
+   mysqli_query($link,$sql) or die("erreur de modificaation du produit ".mysqli_error($link));
+
+    }
 //lister
