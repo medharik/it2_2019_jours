@@ -1,6 +1,6 @@
 <?php 
 function connecter_db(){
-$options=[    PDO::ATTR_ERR_MODE => PDO::ERRMODE_EXCEPTION];
+$options=[    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 $link=new PDO("mysql:host=localhost;dbname=dbabsence","root","",$options);
 return $link;
 }
