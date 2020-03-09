@@ -31,7 +31,7 @@ echo "Erreur de modification  de classe ".$e->getMessage();
 function ajouter_etudiant($nomprenom ,$image,$classe_id){
     try{
             $link=connecter_db();
-            $rp=$link->prepare("insert into etudiant (nomprenom,image,$classe_id ) values (?,?,?)");
+            $rp=$link->prepare("insert into etudiant (nomprenom,photo,classe_id ) values (?,?,?)");
             $rp->execute([$nomprenom,$image,$classe_id]);
     }catch(PDOException $e){
     echo "Erreur d'ajout de etudiant ".$e->getMessage();
@@ -54,7 +54,7 @@ function ajouter_etudiant($nomprenom ,$image,$classe_id){
 function ajouter_absence($date_absence ,$nombre_heure,$matiere,$etudiant_id){
     try{
             $link=connecter_db();
-            $rp=$link->prepare("insert into absence (date_absence ,nombre_heure,matiere,etudiant_id) values (?,?,?,>)");
+            $rp=$link->prepare("insert into absence (date_absence ,nombreHeure,matiere,etudiant_id) values (?,?,?,?)");
             $rp->execute([$date_absence ,$nombre_heure,$matiere,$etudiant_id]);
     }catch(PDOException $e){
     echo "Erreur d'ajout de l'ansence ".$e->getMessage();

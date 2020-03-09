@@ -1,3 +1,8 @@
+<?php 
+include("functions.php");
+$classes=all("classe");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +18,23 @@
         <div class="col-md-6 mx-auto shadow">
             <form action="controller.php?t=etudiant&a=store" method="post">
       <div class="form-group">
-      <label for="nom">
-            Nom: </label>
+      <label for="nomprenom">
+            Nom & prenom : </label>
          
-            <input type="text" class="form-control" name="nom" id="nom"></div>
-            <div class="form-group">
+            <input type="text" class="form-control" name="nomprenom" id="nomprenom">
+            
+    </div>
+          
             <div class="form-group">
       <label for="nom">
-            prenom: </label>
-         
-            <input type="text" class="form-control" name="prenom" id="prenom"></div>
+            Classe : </label>
+<select  class="form-control" name="classe_id">
+<?php foreach($classes as $c){ ?>
+<option value="<?=$c['id']?>"><?=$c['nom']?> </option>
+<?php } ?>
+
+</select>         
+           
             <div class="form-group">
             <button class="btn btn-primary">Ajouter etudiant</button>            </div>
             </form>

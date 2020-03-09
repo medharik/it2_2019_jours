@@ -16,7 +16,7 @@ $classes=all("classe");
 <a  class="btn btn-primary  " href="create_classe.php">Nouveau</a>
 
 </div>
-    <h3 class="alert alert-info text-center mx-auto" style="width:50%">Liste des classes  :<?=random?></h3>
+    <h3 class="alert alert-info text-center mx-auto" style="width:50%">Liste des classes  :</h3>
 <div class="container">
 <table class="table table-dark">
   <thead>
@@ -36,9 +36,9 @@ $classes=all("classe");
       </th>
       <td> <?=$c['nom']?></td>
   
-      <td><a href="controller.php?t=classe&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
-      <a href="" class="btn btn-warning btn-small">Modifier</a>
-      <a href="" class="btn btn-info btn-small">Consulter</a></td>
+      <td><a  onclick="return confirm('voulez vous vraiment supprimer cet element?')" href="controller.php?t=classe&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
+      <a href="edit_classe.php?id=<?=$c['id']?>" class="btn btn-warning btn-small">Modifier</a>
+      <a href="show_classe.php?id=<?=$c['id']?>" class="btn btn-info btn-small"   >Consulter</a></td>
     </tr>
   <?php } ?>
    

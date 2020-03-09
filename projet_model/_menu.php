@@ -488,15 +488,15 @@ footer p a{
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
+                    <a class="nav-link" href="index_etudiant.php">
                       <i class="now-ui-icons users_circle-08"></i>
-                      <p>Profile</p>
+                      <p>Etudiants</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
+                    <a class="nav-link" href="index_absence.php.">
                       <i class="now-ui-icons ui-1_settings-gear-63"></i>
-                      <p>Settings</p>
+                      <p>Absences</p>
                     </a>
                   </li>
                 </ul>

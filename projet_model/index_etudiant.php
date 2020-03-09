@@ -22,8 +22,8 @@ $etudiant=all("etudiant");
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nom</th>
-      <th scope="col">prenom</th>
+      <th scope="col">Nom & prenom</th>
+      <th scope="col">Classe </th>
       <th scope="col">Actions</th>
   
     </tr>
@@ -35,8 +35,11 @@ $etudiant=all("etudiant");
       <th scope="row">
       <?=$c['id']?>
       </th>
-      <td> <?=$c['nom']?></td>
-      <td> <?=$c['prenom']?></td>
+      <td> <?=$c['nomprenom']?></td>
+      <td> <?php 
+      $classe=find($c['classe_id'],"classe");
+      echo $classe['nom'];
+      ?></td>
   
       <td><a href="controller.php?t=etudiant&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
       <a href="" class="btn btn-warning btn-small">Modifier</a>
