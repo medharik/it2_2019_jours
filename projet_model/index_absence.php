@@ -1,26 +1,24 @@
-<?php 
-include("functions.php");
-$etudiants=find($_GET['id'],'etudiant');
-$absences=findBy("etudiant_id=".$_GET['id'],"absence");
-?>
+<?php  include("functions.php");
 
+$absences=all("absence");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <?php include("_css.php")?>
+    <title>Nouveau</title>
+    <?php include ("_css.php");?>
 </head>
 <body>
-    <?php include("_menu.php")?>
-    <div class="card" style="width: 18rem;">
-  <img src="<?=$etudiants['photo']?>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><?=$etudiants['nomprenom']?></h5>
-    </div>
+<?php include ("_menu.php");?>
+<div class="text-right mr-5">
+<a  class="btn btn-primary  " href="create_absence.php">Nouveau</a>
+
 </div>
-<div class="container"><table class="table table-dark">
+    <h3 class="alert alert-info text-center mx-auto" style="width:50%">Liste des absences  :</h3>
+<div class="container">
+<table class="table table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -55,12 +53,11 @@ $absences=findBy("etudiant_id=".$_GET['id'],"absence");
   <?php } ?>
    
   </tbody>
-</table></div>
+</table>
 
+</div>
 
-
-<?php include("_footer.php")?>
-
-<?php include("_scripts.php")?>
+<?php include ("_footer.php");?>
+<?php include ("_scripts.php");?>
 </body>
 </html>

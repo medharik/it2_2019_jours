@@ -22,6 +22,7 @@ $etudiant=all("etudiant");
   <thead>
     <tr>
       <th scope="col">#</th>
+      <td>Photo</td>
       <th scope="col">Nom & prenom</th>
       <th scope="col">Classe </th>
       <th scope="col">Actions</th>
@@ -35,6 +36,10 @@ $etudiant=all("etudiant");
       <th scope="row">
       <?=$c['id']?>
       </th>
+      <th scope="row">
+     <img src=" <?=$c['photo']?>" width="100" class="img-thumbnail">
+      </th>
+
       <td> <?=$c['nomprenom']?></td>
       <td> <?php 
       $classe=find($c['classe_id'],"classe");
@@ -43,7 +48,7 @@ $etudiant=all("etudiant");
   
       <td><a href="controller.php?t=etudiant&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
       <a href="" class="btn btn-warning btn-small">Modifier</a>
-      <a href="" class="btn btn-info btn-small">Consulter</a></td>
+      <a href="show_absence.php?id=<?=$c['id']?>" class="btn btn-info btn-small">Journal d'absence</a></td>
     </tr>
   <?php } ?>
    

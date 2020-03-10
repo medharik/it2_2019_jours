@@ -64,7 +64,8 @@ function ajouter_absence($date_absence ,$nombre_heure,$matiere,$etudiant_id){
     function modifier_absence($date_absence,$nombre_heure,$matiere,$etudiant_id,$id){
     try{
             $link=connecter_db();
-            $rp=$link->prepare("update etudiant set date_absence = ? , nombre_heure = ? , matiere=?
+            $rp=$link->prepare("update absence 
+            set date_absence = ? , nombreHeure = ? , matiere=?,
             etudiant_id=? where id=?");
             $rp->execute([$date_absence ,$nombre_heure,$matiere,$etudiant_id,$id]);
     }catch(PDOException $e){
@@ -118,7 +119,7 @@ function supprimer($id,$table){
         try{
             $link=connecter_db();
             $rp=$link->prepare("select *  from $table  where $condition ");
-            $rp->execute([$id]);
+            $rp->execute([]);
          $resultat=   $rp->fetchALl();
          return $resultat;
     }catch(PDOException $e){
@@ -126,6 +127,31 @@ function supprimer($id,$table){
     } 
     }
 
+
+    function uploader($infos){
+        define('MAX_SIZE',1000000);
+        $autorise=['jpg','jpeg','gif','pdf'];
+        $tmp=$infos['tmp_name'];
+        $nom_original=$infos['name'];
+        $new_nom=  md5(date('Ymdhis')."_".rand(0,99999)).$nom_original;
+        // $size=$infos['size'];// en octect
+         $size=filesize($tmp);// en octect
+         $path_info=pathinfo($nom_original);
+         $ext=$path_info['extension'];
+         if($size > MAX_SIZE){
+             die("fichier volumineux ");
+         }
+         if(!in_array($ext,$autorise)){
+         die("type de fichier non autorise");
+         }
+        $chemin="images/$new_nom";
+        move_uploaded_file($tmp,$chemin);
+        //recuperer les datas
+        return $chemin;
+        
+        
+        }
+        
 //fin commun 
 
 ?>

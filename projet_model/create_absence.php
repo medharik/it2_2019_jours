@@ -1,3 +1,8 @@
+<?php 
+include("functions.php");
+$etudiants=all("etudiant");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,7 @@
     <?php include ("_css.php");?>
 </head>
 <body>
+    <?php include ("_menu.php");?>
 
 <?php  echo  random_int(1,12)?>
    <h3 class="alert alert-info text-center mx-auto" style="width:50%">Fiche d'absence :</h3>
@@ -16,15 +22,15 @@
             <form action="controller.php?t=absence&a=store" method="post">
       <div class="form-group">
       <label for="date_absence ">
-      date_absence : </label>
+      date D'absence : </label>
          
-            <input type="text" class="form-control" name=" date_absence" id=" date_absence ">
+            <input type="date" class="form-control" name=" date_absence" id=" date_absence ">
             </div>
             <div class="form-group">
       <label for="nombreHeure  ">
-      nombreHeure  : </label>
+      nombre D'heure  : </label>
          
-            <input type="text" class="form-control" name="nombreHeure" id="nombreHeure">
+            <input type="number" class="form-control" name="nombreHeure" id="nombreHeure">
             </div>
             <div class="form-group">
       <label for="matiere">
@@ -36,7 +42,13 @@
       <label for="etudiant_id">
       Etudiant  : </label>
          
-            <input type="text" class="form-control" name="etudiant_id" id="etudiant_id">
+            <select type="text" class="form-control" name="etudiant_id" id="etudiant_id">
+        <option value="">....</option>
+        <?php foreach($etudiants as $e) {  ?>
+
+        <option value="<?=$e['id']?>"><?=$e['nomprenom']?></option>
+        <?php } ?>
+        </select>
             </div>
             <div class="form-group">
             <button class="btn btn-primary">Ajouter Absence</button>            </div>

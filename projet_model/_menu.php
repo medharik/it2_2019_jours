@@ -494,7 +494,7 @@ footer p a{
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="index_absence.php.">
+                    <a class="nav-link" href="index_absence.php">
                       <i class="now-ui-icons ui-1_settings-gear-63"></i>
                       <p>Absences</p>
                     </a>

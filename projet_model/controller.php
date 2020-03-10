@@ -20,7 +20,8 @@ if($t=="classe"){
 if($t=="etudiant"){
     //store
   if($a=="store" ){
-    ajouter_etudiant($nomprenom,"images/i.png",$classe_id);
+   $chemin= uploader($_FILES['photo']);
+    ajouter_etudiant($nomprenom,$chemin,$classe_id);
   }  
   if($a=="delete" ){
     supprimer($id,$t);
@@ -40,9 +41,10 @@ if($t=="absence"){
     supprimer($id,$t);
   }  
   if($a=="update" ){
-    modifier_absence($nomprenom,"",$classe_id,$id);
+    modifier_absence($date_absence,$nombreHeure,$matiere,$etudiant_id,$id);
   }  
-  //header("location:index_absence.php");
+  
+  header("location:index_absence.php");
 }
 
 

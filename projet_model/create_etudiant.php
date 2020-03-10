@@ -16,12 +16,19 @@ $classes=all("classe");
 <div class="container">
     <div class="row">
         <div class="col-md-6 mx-auto shadow">
-            <form action="controller.php?t=etudiant&a=store" method="post">
+            <form action="controller.php?t=etudiant&a=store" method="post"  enctype="multipart/form-data">
       <div class="form-group">
       <label for="nomprenom">
             Nom & prenom : </label>
          
             <input type="text" class="form-control" name="nomprenom" id="nomprenom">
+            
+    </div>
+      <div class="form-group">
+      <label for="photo">
+            Photo : </label>
+         
+            <input type="file" class="form-control" name="photo" id="photo">
             
     </div>
           
