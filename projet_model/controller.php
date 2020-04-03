@@ -35,7 +35,12 @@ if($t=="etudiant"){
 if($t=="absence"){
     //store
   if($a=="store" ){
-    ajouter_absence($date_absence,$nombreHeure,$matiere,$etudiant_id);
+    // var_dump($_POST);
+    // die();
+
+    foreach($etudiant_id as $id){
+      ajouter_absence($date_absence,$nombreHeure,$matiere,$id);
+    }
   }  
   if($a=="delete" ){
     supprimer($id,$t);

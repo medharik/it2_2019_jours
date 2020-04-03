@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php
-    
-    ?>
 </head>
 <body>
+
+<?php  if(isset($_COOKIE['date_visite'])) {?>
+votre date de visite est : <?=$_COOKIE['date_visite'];?>
+<?php }  ?>
     
 </body>
 </html>

@@ -1,4 +1,10 @@
-<?php  include("functions.php");
+<?php
+session_start();
+include("functions.php");
+$login=$_SESSION['login']; 
+$passe=$_SESSION['passe']; 
+checker($login,$passe);
+
 
 $absences=all("absence");
 ?>
@@ -12,6 +18,7 @@ $absences=all("absence");
 </head>
 <body>
 <?php include ("_menu.php");?>
+Bienvenue : <?=$_SESSION['nom'];?>
 <div class="text-right mr-5">
 <a  class="btn btn-primary  " href="create_absence.php">Nouveau</a>
 

@@ -499,6 +499,12 @@ footer p a{
                       <p>Absences</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="deconnexion.php">
+                      <i class="now-ui-icons ui-1_settings-gear-63"></i>
+                      <p>Deconnexion</p>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

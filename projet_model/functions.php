@@ -153,5 +153,44 @@ function supprimer($id,$table){
         }
         
 //fin commun 
+// les cookies :  donnees enregistrees par un composant web dans la machine du client
+// chaque cookie a : 
+//1- name 
+//2- value 
+//3- age : duree de vie (expire le )
+// les sessions : mecanisme permettant d'entregistrer  (cote serveur )
+// ( durant la visite du client , ou tant que le client n'a pas detruit la session)
+//les donnees de chaque client (visiteur)
 
+//  permettant de partager des donnees avec plusieurs pages  
+
+
+// check session
+
+function checker($login,$passe){
+    try{
+        $link=connecter_db();
+        $rp=$link->prepare("select *  from user  where login =? and passe = ?");
+        $rp->execute([$login,$passe]);
+     $resultat=   $rp->fetch();
+     if(!empty($resultat)){
+
+        $_SESSION['login']=$login;
+        $_SESSION['passe']=$passe;
+        $_SESSION['nom']=$resultat['nom'];
+        }else{
+            header("location:login.php?cn=no");
+        }
+        
+}catch(PDOException $e){
+echo "Erreur de selection  de $table ".$e->getMessage();
+} 
+
+
+
+}
+
+
+
+//session
 ?>

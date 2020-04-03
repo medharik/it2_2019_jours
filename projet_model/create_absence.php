@@ -38,25 +38,41 @@ $etudiants=all("etudiant");
          
             <input type="text" class="form-control" name="matiere" id="matiere">
             </div>
-            <div class="form-group">
-      <label for="etudiant_id">
-      Etudiant  : </label>
-         
-            <select type="text" class="form-control" name="etudiant_id" id="etudiant_id">
-        <option value="">....</option>
-        <?php foreach($etudiants as $e) {  ?>
-
-        <option value="<?=$e['id']?>"><?=$e['nomprenom']?></option>
-        <?php } ?>
-        </select>
-            </div>
+            
             <div class="form-group">
             <button class="btn btn-primary">Ajouter Absence</button>            </div>
-            </form>
+         
         </div>
     </div>
 </div>
+<hr>
 
+<h2 class="alert alert-info text-center">Liste des etudiants</h2>
+<div class="container">
+    <div class="row">
+<?php 
+foreach($etudiants as $e){
+
+?>
+        <div class="col-md-4 border shadow  text-center">
+        <label >
+        <input type="checkbox" name="etudiant_id[]" value="<?=$e['id']?>">
+        <img src="<?=$e['photo']?>" alt="">
+        <h4 class="text-primary text-center"><?=$e['nomprenom']?> </h4>
+        </label>
+        </div>
+<?php } ?>
+
+    </div>
+
+
+</div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include ("_footer.php");?>
 <?php include ("_scripts.php");?>
 </body>

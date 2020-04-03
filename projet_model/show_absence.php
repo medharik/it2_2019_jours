@@ -14,13 +14,19 @@ $absences=findBy("etudiant_id=".$_GET['id'],"absence");
 </head>
 <body>
     <?php include("_menu.php")?>
-    <div class="card" style="width: 18rem;">
+   
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<div class="card">
   <img src="<?=$etudiants['photo']?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?=$etudiants['nomprenom']?></h5>
     </div>
 </div>
-<div class="container"><table class="table table-dark">
+</div>
+<div class="col-md-8">
+<table class="table table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -48,14 +54,19 @@ $absences=findBy("etudiant_id=".$_GET['id'],"absence");
       <td> <?=$c['nombreHeure']?>H</td>
       <td> <?=$c['matiere']?></td>
   
-      <td><a  onclick="return confirm('voulez vous vraiment supprimer cet element?')" href="controller.php?t=absence&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
-      <a href="edit_absence.php?id=<?=$c['id']?>" class="btn btn-warning btn-small">Modifier</a>
-      <a href="show_absence.php?id=<?=$c['id']?>" class="btn btn-info btn-small"   >Consulter</a></td>
+      <td><a  onclick="return confirm('voulez vous vraiment supprimer cet element?')" href="controller.php?t=absence&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">S</a>
+      <a href="edit_absence.php?id=<?=$c['id']?>" class="btn btn-warning btn-small">M</a>
+      <a href="show_absence.php?id=<?=$c['id']?>" class="btn btn-info btn-small"   >C</a></td>
     </tr>
   <?php } ?>
    
   </tbody>
-</table></div>
+</table>
+</div>
+</div>
+
+</div>
+
 
 
 
