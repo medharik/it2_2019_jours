@@ -1,6 +1,14 @@
 <?php  include("functions.php");
+if(isset($_GET['np']) && !empty($_GET['np'])){
+  $etudiant=rechercher($_GET['np']);//liste des etudiants ayant un nomprenom like $_GET['np']
 
-$etudiant=all("etudiant");
+}else{
+  $etudiant=all("etudiant");
+
+}
+
+// $c=cumul_absence(5);
+// var_dump($c);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +26,17 @@ $etudiant=all("etudiant");
 </div>
     <h3 class="alert alert-info text-center mx-auto" style="width:50%">Liste des etudiants </h3>
 <div class="container">
+<div class="alert">
+<form action="index_etudiant.php" method="get">
+<fieldset>
+<legend>Recherche : </legend>
+Mot clé : <input type="text" name="np" id="np"> 
+<button class="btn btn-primary">Ok</button>
+</fieldset>
+
+</form>
+
+</div>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -25,6 +44,7 @@ $etudiant=all("etudiant");
       <td>Photo</td>
       <th scope="col">Nom & prenom</th>
       <th scope="col">Classe </th>
+      <th scope="col">Cumul d'absence </th>
       <th scope="col">Actions</th>
   
     </tr>
@@ -45,7 +65,11 @@ $etudiant=all("etudiant");
       $classe=find($c['classe_id'],"classe");
       echo $classe['nom'];
       ?></td>
-  
+  <td>
+  <?php $cumul=cumul_absence($c['id']);
+  echo $cumul['cumul'];
+?>
+  </td>
       <td><a href="controller.php?t=etudiant&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
       <a href="" class="btn btn-warning btn-small">Modifier</a>
       <a href="show_absence.php?id=<?=$c['id']?>" class="btn btn-info btn-small">Journal d'absence</a></td>

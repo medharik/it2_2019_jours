@@ -5,8 +5,17 @@ $login=$_SESSION['login'];
 $passe=$_SESSION['passe']; 
 checker($login,$passe);
 
+// si on a des elements a rechercher (depuis le form)
+if(isset($_GET['nom_prenom']) && isset($_GET['matiere']) && isset($_GET['classe_id'])){
+  $absences=rechercher_multi_critere($_GET['nom_prenom'],$_GET['matiere'], $_GET['classe_id']);
+}else{// on a rien a rechercher =< on recupere le tout
 
-$absences=all("absence");
+  $absences=all("absence");
+
+}
+
+$classes=all("classe");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +34,20 @@ Bienvenue : <?=$_SESSION['nom'];?>
 </div>
     <h3 class="alert alert-info text-center mx-auto" style="width:50%">Liste des absences  :</h3>
 <div class="container">
+<div class="alert">
+<form action="<?=basename(__FILE__)?>" method="get" id="form_recherche">
+Nom & Prenom : <input type="text" name="nom_prenom" id="nom_prenom">
+Matiere : <input type="text" name="matiere" id="nom_prenom">
+Classe : <select name="classe_id" id="classe_id" onchange="search_class()">
+<option value="" selected>...</option>
+<?php  foreach($classes as $c) {?>
+  <option value="<?=$c['id']?>"><?=$c['nom']?></option>
+<?php } ?>
+</select> 
+<button class="btn btn-sm btn-primary">Rechercher</button>
+
+</form>
+</div>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -66,5 +89,16 @@ Bienvenue : <?=$_SESSION['nom'];?>
 
 <?php include ("_footer.php");?>
 <?php include ("_scripts.php");?>
+
+<script>
+function search_class(){
+
+let  f=document.getElementById('form_recherche');
+f.submit();
+
+
+}
+
+</script>
 </body>
 </html>

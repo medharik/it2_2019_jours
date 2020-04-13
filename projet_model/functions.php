@@ -193,4 +193,68 @@ echo "Erreur de selection  de $table ".$e->getMessage();
 
 
 //session
+// recherche 
+
+function rechercher($mot_cle){
+
+    try{
+        $link=connecter_db();
+        $rp=$link->prepare("select *  from etudiant  , classe 
+         where  etudiant.classe_id=classe.id  and 
+         (nomprenom like ?  or nom like ?) ");
+        $rp->execute(["%$mot_cle%","%$mot_cle%"]);
+     $resultat=   $rp->fetchAll();
+     return $resultat;
+}catch(PDOException $e){
+echo "Erreur de recherche ".$e->getMessage();
+} 
+
+
+}
+function rechercher_multi_critere($nom_prenom,$matiere, $classe_id){
+
+    try{
+        $link=connecter_db();
+
+        if(!empty($classe_id)){
+
+            $rp=$link->prepare("select * from absence a  join etudiant e on  a.etudiant_id=e.id where e.nomprenom like ? and  a.matiere  like ? 
+            and e.classe_id = ? 
+            
+            ");
+            $rp->execute(["%$nom_prenom%","%$matiere%",$classe_id]);
+        }else{
+            $rp=$link->prepare("select * from absence a  join etudiant e on  a.etudiant_id=e.id where e.nomprenom like ? and  a.matiere  like ? 
+            
+            
+            ");
+            $rp->execute(["%$nom_prenom%","%$matiere%"]);  
+        }
+     $resultat=   $rp->fetchAll();
+     return $resultat;
+}catch(PDOException $e){
+echo "Erreur de recherche ".$e->getMessage();
+} 
+
+
+}
+
+// fin recherche 
+
+//cumul
+function cumul_absence($etudiant_id){
+
+    try{
+    $link=connecter_db();
+    $rp=$link->prepare("select sum(nombreHeure) as cumul  from absence  where etudiant_id =?");
+    $rp->execute([$etudiant_id]);
+ $resultat=   $rp->fetch(PDO::FETCH_ASSOC);
+ return $resultat;
+}catch(PDOException $e){
+echo "Erreur de cumul  de $table ".$e->getMessage();
+} 
+
+}
+
+//fin cumul
 ?>
