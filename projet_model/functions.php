@@ -246,7 +246,8 @@ function cumul_absence($etudiant_id){
 
     try{
     $link=connecter_db();
-    $rp=$link->prepare("select sum(nombreHeure) as cumul  from absence  where etudiant_id =?");
+    $rp=$link->prepare("select sum(nombreHeure) as cumul  from absence 
+     where etudiant_id =?");
     $rp->execute([$etudiant_id]);
  $resultat=   $rp->fetch(PDO::FETCH_ASSOC);
  return $resultat;

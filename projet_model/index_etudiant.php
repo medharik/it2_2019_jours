@@ -45,6 +45,7 @@ Mot clé : <input type="text" name="np" id="np">
       <th scope="col">Nom & prenom</th>
       <th scope="col">Classe </th>
       <th scope="col">Cumul d'absence </th>
+      <th scope="col">Note de discipline </th>
       <th scope="col">Actions</th>
   
     </tr>
@@ -69,6 +70,21 @@ Mot clé : <input type="text" name="np" id="np">
   <?php $cumul=cumul_absence($c['id']);
   echo $cumul['cumul'];
 ?>
+  </td>
+<?php 
+$note=20-0.125*   $cumul['cumul'];
+$class_css="text-success";
+if($note<10){
+$class_css="text-danger";
+}
+?>
+
+  <td class="<?=$class_css?>" >
+  <?php 
+  
+  echo number_format( $note,2,',','.');
+  ?>
+
   </td>
       <td><a href="controller.php?t=etudiant&a=delete&id= <?=$c['id']?>" class="btn btn-danger btn-small">Supprimer</a>
       <a href="" class="btn btn-warning btn-small">Modifier</a>

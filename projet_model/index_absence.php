@@ -54,6 +54,7 @@ Classe : <select name="classe_id" id="classe_id" onchange="search_class()">
       <th scope="col">#</th>
       <th scope="col">Etudiant_id</th>
       <th scope="col">Date d'absence</th>
+      <th>Duree passee</th>
       <th scope="col">Nombre d'heure</th>
       <th scope="col">Matiere</th>
       <th scope="col">Actions</th>
@@ -72,7 +73,23 @@ Classe : <select name="classe_id" id="classe_id" onchange="search_class()">
       
       ?>
       <td> <?=$etudiant['nomprenom']?></td>
-      <td> <?=$c['date_absence']?></td>
+      <td> <?php 
+      
+      
+    $d=  $c['date_absence'];
+    $date = new DateTime($d);
+      echo $date->format('d/m/Y');
+      
+      ?></td>
+      <td>
+      <?php 
+      $maintenant=new DateTime('now');
+      //echo $maintenant->format('d-m-Y');
+$interval=$date->diff($maintenant);
+echo "il y a ".$interval->format('%r%a')." jours";
+      ?>
+      
+      </td>
       <td> <?=$c['nombreHeure']?>H</td>
       <td> <?=$c['matiere']?></td>
   
