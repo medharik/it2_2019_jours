@@ -505,9 +505,74 @@ footer p a{
                       <p>Deconnexion</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+   
+    <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#nasser" data-whatever="@mdo">Connexion</button>
+<select id="choix" onchange="bifidane()">
+<option value="">...</option>
+<option value="login" > Login </option>
+<option value="inscription">S'inscrire</option>
+
+</select>
+                    
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
           <!-- End Navbar Primary -->
-         
+          <div class="modal fade" id="nasser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     <?php include("login.php")?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="achraf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Inscription en ligne 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+function bifidane(){
+   let   choix= $('#choix').val();
+       if(choix=="login"){
+        $('#nasser').modal()
+       }
+       if(choix=="inscription"){
+        $('#achraf').modal()
+       }
+
+
+}
+
+</script>
