@@ -1,7 +1,7 @@
 <?php 
 include("produit.class.php");
-//instancier un objet de type produit (classe)
-$hp = new Produit("hp dv 6",5000,0);
+//instancierune classe produit (classe) pour creer un objet $hp
+$hp = new Produit("hp",8,0);
 
 $hp->afficher();
 $hp->verifierStock();

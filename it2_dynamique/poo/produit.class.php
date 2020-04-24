@@ -1,6 +1,5 @@
 <?php 
 // POO : programmation orientée objet
-
 //une application concu en Poo
 //se compose de plusieurs objets en communication 
 //chaque objet possede ses propres attributs et methodes
@@ -15,7 +14,7 @@
 //un objet est une instance d'une classe 
 
 class Produit {
-    //attributs 
+    //attributs (data)
 public $libelle;
 public $prix;
 public $qteStock;
@@ -23,15 +22,13 @@ public $qteStock;
 //) permettant d'initialiser les attributs
 // lors de la creation (instaciation ) de l'objet
 // creation du  constrcuteur 
-function __construct($libelle="",$prix=0,$qte=0){
+function __construct(String $libelle="", float $prix=0,$qte=0){
 $this->libelle=$libelle;
 $this->prix=$prix;
 $this->qteStock=$qte;
-
-
 }
 
-// methodes (function)
+// methodes (function) : comportement
 
 function afficher(){
  echo $this->libelle ." coute ".$this->prix."$<br>";
@@ -43,6 +40,7 @@ function verifierStock(){
     else echo "En rupture de stock<br>";
 
 }
+
 
 
 
